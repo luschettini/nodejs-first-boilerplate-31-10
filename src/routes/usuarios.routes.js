@@ -25,6 +25,31 @@ usuariosRoutes.post("/", (req, res) => {
     message: "Usuário cadastrado com sucesso!",
     user,
   });
+  });
 
+  usuariosRoutes.get("/:id", (req, res) => {
+    const { id } = req.params;
+
+    const user = userList.getUserById(id);
+    if (!user) {
+      return res.status(404).json({
+        message: 'Usuário com id ${id} não encontrado!',
+      });
+    }
+
+    return res.status(200).json({
+      message: "Usuário encontrado!",
+      user,
+    });
 });
-export default usuariosRoutes;
+
+usuariosRoutes.put("/:id", (req, res) => {
+
+ });
+
+
+ usuariosRoutes.delete("/:id", (req, res) => { 
+
+ });
+
+export default usuariosRoutes

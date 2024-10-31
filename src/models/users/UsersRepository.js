@@ -15,6 +15,14 @@ class UsersRepository {
     this.users.push(newUser);
     return newUser;
   }
+  getUserById(id) {
+    const user = this.users.find((user) => user.id == id);
+
+    if (!user) {
+        return null;
+    }
+    return user;
+  }
 }
 
 export default UsersRepository;
